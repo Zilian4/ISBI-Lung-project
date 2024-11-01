@@ -2,8 +2,7 @@ import torch
 from monai.networks.nets import DenseNet121,EfficientNetBN,resnet
 from torchsummary import summary
 from fvcore.nn import FlopCountAnalysis
-from shufflenetv2 import ShuffleNetV2
-from mobilenetv2 import MobileNetV2
+
 # Define the model
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # model = DenseNet121(spatial_dims=3, in_channels=1, out_channels=2).to(device)
@@ -15,7 +14,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # ).to(device)
 # model = ShuffleNetV2().to(device)
 model = MobileNetV2().to(device)
-# model = resnet.resnet50(n_input_channels=1).to(device)
+model = resnet.resnet50(n_input_channels=1).to(device)
 # model = MobileNetV2(
 #     spatial_dims=3,      # Use 3D convolutions for 3D medical imaging
 #     in_channels=1,       # Number of input channels (e.g., 1 for grayscale, 3 for RGB)
